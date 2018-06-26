@@ -4,19 +4,31 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GreetComponent } from './greet/greet.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { BindingComponent } from './binding/binding.component';
+import { NestedComponent } from './binding/binding.nested.component';
+import { StartComponent } from './binding/start/start.component';
+import { IOModule } from './input-output/input-output.module';
+import { ViewChildParentComponent } from './viewchild/viewchildparent.component';
+import { ViewChildComponent } from './viewchild/viewchild.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GreetComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    BindingComponent,
+    NestedComponent,
+    StartComponent,
+    ViewChildParentComponent,
+    ViewChildComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    IOModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
