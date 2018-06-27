@@ -10,6 +10,11 @@ import { StartComponent } from './binding/start/start.component';
 import { IOModule } from './input-output/input-output.module';
 import { ViewChildParentComponent } from './viewchild/viewchildparent.component';
 import { ViewChildComponent } from './viewchild/viewchild.component';
+import { DIModule } from './di/di.module';
+import { CompLifeCycleComponent, ChildComponent } from './complifecycle/complifecycle.component';
+import { Service } from './dynamic/serviceLoader';
+import {DynamicComponent} from './dynamic/dynamic.component';
+import { ContactModule } from './multicomp/contact.module';
 
 
 @NgModule({
@@ -21,14 +26,21 @@ import { ViewChildComponent } from './viewchild/viewchild.component';
     NestedComponent,
     StartComponent,
     ViewChildParentComponent,
-    ViewChildComponent
+    ViewChildComponent,
+    CompLifeCycleComponent,
+    ChildComponent,
+    DynamicComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    IOModule
+    IOModule,
+    DIModule,
+    ContactModule
   ],
-  providers: [],
+  providers: [ Service],
   bootstrap: [AppComponent],
+  entryComponents:[DynamicComponent] // tells which Components should be allowed to inject dynamically
 })
 export class AppModule { }

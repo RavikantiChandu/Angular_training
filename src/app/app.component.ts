@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, ViewContainerRef } from '@angular/core';
+import { Service } from './dynamic/serviceLoader';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular 5 SPA ';
+  title: string = 'Angular 5 SPA ';
+
+  constructor(@Inject(Service) service,
+  @Inject(ViewContainerRef) viewContainerRef) {
+
+    service.setRootViewContainerRef(viewContainerRef)
+    service.addDynamicComponent( )
+
+  }
 }
 

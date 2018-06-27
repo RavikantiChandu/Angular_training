@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'app-start',
-    templateUrl: './start.component.html'
+    templateUrl: './start.component.html',
     styleUrls: ['./start.component.css'],
     styles: [`
     h3{
