@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; // uses Obseravable
 import { AppComponent } from './app.component';
 import { GreetComponent } from './greet/greet.component';
 import { InvoiceComponent } from './invoice/invoice.component';
@@ -13,8 +14,13 @@ import { ViewChildComponent } from './viewchild/viewchild.component';
 import { DIModule } from './di/di.module';
 import { CompLifeCycleComponent, ChildComponent } from './complifecycle/complifecycle.component';
 import { Service } from './dynamic/serviceLoader';
-import {DynamicComponent} from './dynamic/dynamic.component';
+import { DynamicComponent} from './dynamic/dynamic.component';
 import { ContactModule } from './multicomp/contact.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { WeatherComponent } from './http/weather.component';
+import { HttpComponent } from './http/http.component';
+import { HttpService } from './http/http.service';
 
 
 @NgModule({
@@ -29,7 +35,9 @@ import { ContactModule } from './multicomp/contact.module';
     ViewChildComponent,
     CompLifeCycleComponent,
     ChildComponent,
-    DynamicComponent
+    DynamicComponent,
+    WeatherComponent,
+    HttpComponent
 
   ],
   imports: [
@@ -37,9 +45,13 @@ import { ContactModule } from './multicomp/contact.module';
     FormsModule,
     IOModule,
     DIModule,
-    ContactModule
+    ContactModule,
+    HttpClientModule,
+    HttpModule,
+    ReactiveFormsModule
   ],
-  providers: [ Service],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [ Service, HttpService],
   bootstrap: [AppComponent],
   entryComponents:[DynamicComponent] // tells which Components should be allowed to inject dynamically
 })

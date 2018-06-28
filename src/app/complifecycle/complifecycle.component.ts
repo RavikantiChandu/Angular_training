@@ -57,6 +57,7 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
     }
 
     /* Invoked everytime an @Input() property changes via the data binding*/
+    // used for Validations
     ngOnChanges() {
         console.log(`ngOnChanges: ${this.search}`);
     }
@@ -67,12 +68,12 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
 
         /*
         if(this.search.length > 3) {
-            this.cd.detectChanges();
+            this.cd.detectChanges(); // invoked to force update the component tree
         }
         */
        //attaches and then detaches
        //this.cd.detectChanges();
-       
+
        this.cd.checkNoChanges(); // safe guard changes
     }
 
